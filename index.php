@@ -80,7 +80,27 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script type="text/javascript">
-      $(".progress-bar").animate({width: "75%"}, 2000)
+        (function() {
+          
+          $(".progress-bar").animate({width: "75%"})
+          
+          var someName = function() {
+            var intendedWidth = $('.progress-bar').width() * .75;
+            $('.progress-bar').animate({width: intendedWidth}, 2000);
+          }
+          
+          var myObject = {
+            hello: "world",
+            intendedWidth: $('progress-bar').width() * .75
+          }; //object
+          
+          someName();
+          
+          })()
+        //last parentheses run function immediately
+      
+      
+     //setTimeout(someName, 100);
     </script>
   </body>
 </html>
