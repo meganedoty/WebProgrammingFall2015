@@ -98,7 +98,7 @@
           
           })()
         //last parentheses run function immediately
-      
+      //without var a function will become global
       
      //setTimeout(someName, 100);
     </script>
