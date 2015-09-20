@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   </head>
   <body>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand">Encorps</a>
@@ -50,7 +50,52 @@
     </nav>
     
     <div class="container">
+      <h3>Hello! Welcome to your dashboard.</h3>
       
+      <div class="col-sm-8">
+        <div class="alert alert-warning" role="alert">
+          <a href="#" class="alert-link">Keep going! You still haven't hit your minimum intake for today!</a>
+        </div>
+        <h4>Food</h4>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for food...">
+          <span class="input-group-btn">
+            <button class="btn btn-default">Go!</button>
+          </span>
+        </div>
+        <h5>Breakfast</h5>
+        <ul class="list-group">
+          <li class="list-group-item">Food</li>
+          <li class="list-group-item">Food</li>
+          <li class="list-group-item">Food</li>
+        </ul>
+        <h5>Lunch</h5>
+        <ul class="list-group">
+          <li class="list-group-item">Food</li>
+          <li class="list-group-item">Food</li>
+          <li class="list-group-item">Food</li>
+        </ul>
+        <h5>Dinner</h5>
+        <ul class="list-group">
+          <li class="list-group-item">Food</li>
+          <li class="list-group-item">Food</li>
+          <li class="list-group-item">Food</li>
+        </ul>
+        <h5>Snacks</h5>
+        <ul class="list-group">
+          <li class="list-group-item">Food</li>
+        </ul>
+      </div><!-- col-sm-8-->
+      
+      
+      <div class="col-sm-4">
+        <h4>Since signing up:</h4>
+        <ul class="list-group">
+          <li class="list-group-item"><span class="badge">23</span><span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span> Days tracked</li>
+          <li class="list-group-item"><span class="badge">72</span><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span> Miles jogged</li>
+          <li class="list-group-item"><span class="badge">167</span><span class="glyphicon glyphicon-tint" aria-hidden="true"></span> Cups of water consummed</li>
+        </ul>
+      </div><!-- col-sm-4-->
     </div>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
