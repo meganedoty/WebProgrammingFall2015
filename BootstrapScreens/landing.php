@@ -15,6 +15,19 @@
       <div class="container text-center"> 
         <h1 class="text-uppercase">Encorps</h1>
         <h2>World's simplest food and fitness tracker.</h2>
+        
+        <div id="signupform" class="text-center">
+          <div class="input-group">
+            <input type="text" class="form-control input-lg center" id="usernameInput" placeholder="Username">
+          </div>
+          <div class="input-group">
+            <input type="email" class="form-control input-lg" id="emailInput" placeholder="Email">
+          </div>
+          <div class="input-group">
+            <input type="password" class="form-control input-lg" id="passwordInput" placeholder="Password">
+          </div>
+        </div><!-- signupform -->
+        
         <button type="button" class="btn btn-primary">Sign Up Now</button>
         <p><a href="#">I already have an account!</a></p>
         </div><!-- container-->
@@ -42,4 +55,20 @@
       </div>
       
     </div><!--appfeatures-->
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      (function($) {
+        $(function() {
+          $("#signupform").hide(); 
+          
+          $("button").on('click', function(e){
+            var self="this";
+            $("#signupform").slideToggle();
+          });
+        });
+      })(jQuery);
+    </script>
   </body>
+</html>
