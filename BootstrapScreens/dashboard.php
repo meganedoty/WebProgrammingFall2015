@@ -54,7 +54,7 @@
       
       <div class="col-sm-8">
         <div class="alert alert-warning" role="alert">
-          <a href="#" class="alert-link">Keep going! You still haven't hit your minimum intake for today!</a>
+          <a href="#" class="alert-link">You're doing great! Keep in mind you still haven't hit your intake for today.</a>
         </div>
         <h4>Food</h4>
         <div class="input-group">

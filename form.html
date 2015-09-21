@@ -7,34 +7,48 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Bootstrap 101 Template</title>
 
-    <!-- Bootstrap -->
+    <!-- Bootstrap wtfhtmlcss -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   </head>
   <body>
     <div class="container">
+      
+       <div class='alert alert-info'>
+              <button type="button" class=" close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <b>Special offer!</b> free waffle today!
+        </div>
+      
         <div class="page-header">
-          <h1>Waffle Bank <small>Your reserves for literally every day</small></h1>
+          <h1>Bank of Baemerica <small>Your reserves for literally every day</small></h1>
           <h6>so important</h6>
         </div>
         <form class="form-horizontal">
+          
+            <div class='alert'style="display: none" id="myAlert">
+              <button type="button" class=" close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h3></h3>
+            </div>
+            
           <div class="form-group">
-            <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+            <label for="txtLocation" class="col-sm-2 control-label">Email</label>
             <div class="col-sm-10">
               <input type="email" class="form-control" id="txtEmail" placeholder="Email">
             </div>
           </div>
           <div class="form-group">
-            <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+            <label for="txtLength" class="col-sm-2 control-label">Number (in Baes)</label>
             <div class="col-sm-10">
-              <input type="password" class="form-control" id="txtPassword" placeholder="Password">
+              <input type="number" class="form-control" id="txtPassword" placeholder="Number">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label" for="exampleInputAmount">Amount (in waffles)</label>
+            <label class="col-sm-2 control-label" for="txtDate">Deposit Date</label>
             <div class="col-sm-10">
                 <div class="input-group">
-                  <div class="input-group-addon">$</div>
-                  <input type="text" class="form-control" id="txtAmount" placeholder="Amount">
+                  <div class="input-group-addon"><span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span></div>
+                  <input type="date" class="form-control" id="txtAmount" placeholder="Amount">
                   <div class="input-group-addon">.00</div>
                 </div>
             </div>
@@ -50,7 +64,7 @@
           </div>
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-              <button type="submit" class="btn btn-success">(toaster sound)</button>
+              <button type="submit" class="btn btn-success" id="wafflebutton">(toaster sound)</button>
             </div>
           </div>
         </form>
@@ -63,6 +77,8 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <sctript src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></sctript>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script type="text/javascript">
       (function($) {
         $(function() {
@@ -70,14 +86,14 @@
           var $inputs = $("input");
           
           
-          $("button").on('click', function(e){
+          $("#wafflebutton").on('click', function(e){
             var self = this;
             //$('.progress-bar').css({width: '80%'});
             $(this).prop("disabled", true);
             $(this).prop("diabled", true).html("Waffling...");
             var per = 0;
             var interval = setInterval(function(){
-              per += 5;
+              per += 10;
               $(".progress-bar").css("width", per + "%");
               $(".progress-bar span").text(per);
               if(per >= 100) {
@@ -86,15 +102,28 @@
                 if(!$("#txtAmount").val()){
                   $inputs.css({ backgroundColor: "#FFAAAA" });
                   $(self).prop("disabled", false).html("Waffle Again");  
+                  $('#myAlert').addClass('alert-danger').show().find('h3').html('You didn\'t do the thing friend! <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>');
+                  toastr.error("You didn\'t do the thing friend!");
+                  console.log("self");
                 } else {
                   //display success
-                  $("form").preprend("<div class='alert alert-success'>Congrats on the waffle</div>");
+                  //$("form").preprend("<div class='alert alert-success'>Congrats on the waffle</div>");
+                  $('#myAlert').removeClass('alert-danger').addClass('alert-success').show().find('h3').html('Congrats on the waffle friend');
                   $inputs.css({ backgroundColor: "#AAFFAA" });
+                  toastr.success("congrats on the waffle friend");
+                  console.log("self");
                 }
+                console.error("this line should never be reached")
               }
             }, 200);
             return false;
           })
+          $(".close").on('click', function(e) {
+            var self="this";
+            $('.alert').closest(".alert").slideUp();
+          });
+          $("input[type='number']").spinner();
+          $("input[type='date']").datepicker();
         });
       })(jQuery);
     </script>
