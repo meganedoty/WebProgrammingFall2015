@@ -10,6 +10,9 @@
         array( 'Name' => 'Dinner', 'Time' => strtotime("now + 1 hour"), Calories => 400 ),
         array( 'Name' => 'Snack', 'Time' => strtotime("6pm"), Calories => 400 )
         );
+        
+    $food[] = $_REQUEST;
+    
         $total = 0;
         foreach ($food as $meal) {
             $total += $meal['Calories'];
@@ -52,7 +55,7 @@
         
         <div class="row">
           <div class="col-md-8 col-xs-10">
-            <a href="#" class="btn btn-success">
+            <a href="edit.php" class="btn btn-success">
               <i class="glyphicon glyphicon-thumbs-up"></i>
               New Record</a>
             <a href="#" class="btn btn-danger">
@@ -61,13 +64,12 @@
             
             <table class="table table-condensed table-striped table-hover">
               <caption>Optional table caption.</caption>
-              <thead>
+             <thead>
                 <tr>
-                    <?php $names = $food[0]; ?>
-                          <th>#</th>
-                          <? foreach($names as $key => $value): ?>
-                          <th><?=$key?></th>
-                     <? endforeach; ?>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Time</th>
+                  <th>Callories</th>
                 </tr>
               </thead>
               <tbody>
