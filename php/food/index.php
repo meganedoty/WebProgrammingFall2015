@@ -1,17 +1,19 @@
 <?php 
+session_start();
     $name = 'Agent Dale Cooper';
     $message = "Welcome, $name";
     
     $person = array('Name' => $name, 'Age' => 32, CalorieGoal => 2000);
     
-    $food = array(
-        array( 'Name' => 'Breakfast', 'Time' => strtotime("one hour ago"), Calories => 400 ),
-        array( 'Name' => 'Lunch', 'Time' => strtotime("now"), Calories => 400 ),
-        array( 'Name' => 'Dinner', 'Time' => strtotime("now + 1 hour"), Calories => 400 ),
-        array( 'Name' => 'Snack', 'Time' => strtotime("6pm"), Calories => 400 )
+    $food = $_SESSION['food'];
+    if(!$food){
+      $_SESSION['food'] = $food = array(
+        array( 'Name' => 'Petit Dejeuner', 'Time' => strtotime("one hour ago"), Calories => 400 ),
+        array( 'Name' => 'Dejeuner', 'Time' => strtotime("now"), Calories => 400 ),
+        array( 'Name' => 'Diner', 'Time' => strtotime("now + 1 hour"), Calories => 400 ),
+        array( 'Name' => 'Grignoter', 'Time' => strtotime("6pm"), Calories => 400 ),
         );
-        
-    $food[] = $_REQUEST;
+    }
     
         $total = 0;
         foreach ($food as $meal) {
@@ -58,9 +60,9 @@
             <a href="edit.php" class="btn btn-success">
               <i class="glyphicon glyphicon-thumbs-up"></i>
               New Record</a>
-            <a href="#" class="btn btn-danger">
+            <a href="delete.php" class="btn btn-danger">
               <i class="glyphicon glyphicon-thumbs-down"></i>
-              Delete All <span class="badge">4</span></a>
+              Delete All <span class="badge"><?=count($food)?></span></a>
             
             <table class="table table-condensed table-striped table-hover">
               <caption>Optional table caption.</caption>
@@ -75,7 +77,12 @@
               <tbody>
                   <?php foreach($food as $i => $meal): ?>
                 <tr>
-                  <th scope="row"><?=$i?></th>
+                  <th scope="row">
+                    <div class="btn-group" role="group" aria-label="...">
+                      <a href="" title="View" class="btn-xs btn-default"><i class="glyphicon glyphicon-thumbs-down"></i></a>
+                      <a href="edit.php?id<?=$i?>" title="Edit" class="btn-xs btn-default"><i class="glyphicon glyphicon-edit"></i></a>
+                      <a href="delete.php?id=<?=$i?>" title="Delete" class="btn-xs btn-default"><i class="glyphicon glyphicon-fire"></i></a>
+                  </th>
                   <td><?=$meal['Name']?></td>
                   <td><?=date("M d Y h:i:sa", $meal['Time'])?></td>
                   <td><?=$meal['Calories']?></td>

@@ -1,7 +1,26 @@
 <?php
-    var_dump($_GET);
-    var_dump($_POST);
-    var_dump($_REQUEST);
+session_start();
+  $food = $_SESSION['food'];
+  if($_POST){
+    if(isset($_GET['id'])){
+      $food[$_GET['id']] = $_POST;
+    } else {
+      $food = $_POST;
+    }
+    $food[] = $_POST;
+    $_SESSION['food'] = $food;
+    header('Location: ./');
+  }
+  
+  if($_GET['id']){
+    $meal = $food[$_GET['id']];
+  } else {
+    $meal = array();
+  }
+  
+    //var_dump( $_GET );
+    //var_dump( $_POST );
+    //var_dump( $_REQUEST );
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,9 +49,9 @@
           <h1>Manger bien <small>enregistrer vos repas journalier</small></h1>
           <h6>tres important</h6>
         </div>
-        <form class="form-horizontal" action="./" method="post">
+        <form class="form-horizontal" action="" method="post">
           
-            <div class='alert'style="display: none" id="myAlert">
+            <div class='alert' style="display: none" id="myAlert">
               <button type="button" class=" close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               <h3></h3>
             </div>
@@ -40,22 +59,20 @@
           <div class="form-group">
             <label for="txtName" class="col-sm-2 control-label">Nom</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="txtName" name="name" placeholder="Nom du repas">
+              <input type="text" class="form-control" id="txtName" name="name" placeholder="Nom du repas" value="<?=$meal['Name']?>">
             </div>
           </div>
           <div class="form-group">
             <label for="calories" class="col-sm-2 control-label">Kcal</label>
             <div class="col-sm-10">
-              <input type="number" class="form-control" id="txtCalories" name="calories" placeholder="Kcal se trouvaient dans ce repas">
+              <input type="number" class="form-control" id="txtCalories" name="calories" placeholder="Kcal se trouvaient dans ce repas" value="<?=$meal['calories']?>">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label" for="txtTime">Heure du repas</label>
+            <label class="col-sm-2 control-label" for="txtDate">Jour du repas</label>
             <div class="col-sm-10">
                 <div class="input-group">
-                  <div class="input-group-addon"><span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span></div>
-                  <input type="date" class="form-control" id="txtTime" name="txtTime" placeholder="Amount">
-                  <div class="input-group-addon">.00</div>
+                  <input type="text" class="form-control" id="txtTime" name="txtDate" placeholder="Date" value="<?=$meal['Date']?>">
                 </div>
             </div>
           </div>
