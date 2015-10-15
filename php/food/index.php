@@ -1,7 +1,7 @@
 <?php 
 session_start();
     $name = 'Agent Dale Cooper';
-    $message = "Welcome, $name";
+    $message = "Bienvenue, $name";
     
     $person = array('Name' => $name, 'Age' => 32, CalorieGoal => 2000);
     
@@ -34,19 +34,19 @@ session_start();
   </head>
   <body>
       <div class="container">
-        <h1>Hello, Twin Peaks!</h1>
+        <h1>Manger bien <small>enregistrer vos repas journalier</small></h1>
         <h2><?=$message?></h2>
         <div class="panel panel-success">
-            <div class="panel-heading">Your data</div>
+            <div class="panel-heading">Votre data</div>
             <div class="pannel-body">
                 <dl class="dl-horizontal">
-                    <dt>Name</dt>
+                    <dt>Nom</dt>
                     <dd><?=$person['Name']?></dd>
                     <dt>Age</dt>
                     <dd><?=$person['Age']?></dd>
-                    <dt>Calorie goal</dt>
+                    <dt>But Calorique</dt>
                     <dd><?=$person['CalorieGoal']?></dd>
-                    <dt>Today's Intake</dt>
+                    <dt>Consommation d'Aujourd'hui</dt>
                     <dd><?=$total?></dd>
                 </dl>
             </div>
@@ -59,19 +59,19 @@ session_start();
           <div class="col-md-8 col-xs-10">
             <a href="edit.php" class="btn btn-success">
               <i class="glyphicon glyphicon-thumbs-up"></i>
-              New Record</a>
+              Nouvelle Entrée</a>
             <a href="delete.php" class="btn btn-danger">
               <i class="glyphicon glyphicon-thumbs-down"></i>
-              Delete All <span class="badge"><?=count($food)?></span></a>
+              Tout Supprimer <span class="badge"><?=count($food)?></span></a>
             
             <table class="table table-condensed table-striped table-hover">
-              <caption>Optional table caption.</caption>
+              <caption>Ce que vous avez mangé jusqu'ici aujourd'hui.</caption>
              <thead>
                 <tr>
                   <th>#</th>
-                  <th>Name</th>
-                  <th>Time</th>
-                  <th>Callories</th>
+                  <th>Nom</th>
+                  <th>Heure</th>
+                  <th>Calories</th>
                 </tr>
               </thead>
               <tbody>
