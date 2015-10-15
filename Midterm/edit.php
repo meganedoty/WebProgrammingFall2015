@@ -1,22 +1,22 @@
 <?php
 session_start();
-    $waffle = $_SESSION['waffle'];
-    if($_POST){
-        if(isset($_GET['id'])){
-            $waffle[$_GET['id']] = $_POST;
-        } else {
-            $waffle = $_POST;
-        }
-        $waffle[] = $_POST;
-        $_SESSION['waffle'] = $waffle;
-        header('Location: ./');
-    }
-    
-    if($_GET['id']){
-        $meal = $waffle[$_GET['id']];
+  $waffle = $_SESSION['food'];
+  if($_POST){
+    if(isset($_GET['id'])){
+      $waffle[$_GET['id']] = $_POST;
     } else {
-        $meal = array();
+      $waffle = $_POST;
     }
+    $waffle[] = $_POST;
+    $_SESSION['food'] = $waffle;
+    header('Location: ./');
+  }
+  
+  if($_GET['id']){
+    $waffle = $food[$_GET['id']];
+  } else {
+    $waffle = array();
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,8 +30,6 @@ session_start();
     <!-- Bootstrap wtfhtmlcss dzone parse
     -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   </head>
     <body>
         <div class="container">

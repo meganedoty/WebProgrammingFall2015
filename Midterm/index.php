@@ -10,10 +10,10 @@ session_start();
       );
   }
   
-  //$total = 0;
-  //foreach ($waffle as $meal) {
-//    $total += $meal['Quantity'];
- // }
+  $total = 0;
+  foreach ($waffle as $meal) {
+   $total += $meal['Quantity'];
+  }
   
 ?>
 
