@@ -39,7 +39,7 @@ session_start();
               </button>
               <h3>Vous etes sur que vous voudriez supprimer <?=$meal['Name']?>?</h3>
               <input type="submit" value="delete" class="btn btn-danger" />
-              <input type="hidden" name="id" value="<?=$_REQUEST['id']?>"
+              <input type="hidden" name="id" value="<?=$_REQUEST['id']?>">
             </div>
         </form>
     </div>

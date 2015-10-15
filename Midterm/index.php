@@ -30,6 +30,45 @@ session_start();
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   </head>
   <body>
+    
+      <nav class="navbar navbar-default navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand">The Waffle</a>
+          </div>
+        
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Dashboard</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Databases <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Batters</a></li>
+                <li><a href="#">Toppings</a></li>
+              </ul>
+            </li>
+          </ul>
+          
+          <form class="navbar-form navbar-left">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+          
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span><span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Log out</a></li>
+              </ul>
+            </li>
+          </ul>
+          </div><!-- container fluid -->
+        </div>
+      </nav>
+    
       <div class="container">
         <h1>Waffle Tracker</h1>
         
@@ -76,9 +115,10 @@ session_start();
         </div> <!-- row -->
         
         <div class="col-md-4 col-xs-2">
+          <div class="alert alert-success" role="alert">If you believe enough, you can eat all the waffles</div>
           <div class="panel panel-default">
             <div class="panel-heading">Stay hydrated while eating waffles</div>
-            <div class="panel-body">
+            <div class="panel-body text-center">
               <div class="row">
                 <a href="#" class="btn btn-success" id="wateradd">+</a>
                 <a href="#" class="btn btn-danger" id="waterdelete">-</a>
