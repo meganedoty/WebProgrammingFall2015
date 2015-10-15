@@ -1,3 +1,14 @@
+<?php
+session_start();
+  $waffle = $_SESSION['waffle'];
+  if($_POST){
+    unset($waffle[$_POST['id']]);
+    $_SESSION['waffle'] = $food;
+    header('Location: ./');
+  }
+  
+  $meal = $waffle[$_REQUEST['id']];
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,7 +34,7 @@
                     <button type="button" class="close" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h3>You're sure that you'd like to deleate <?=$meal['Name']?>?</h3>
+                    <h3>You're sure that you'd like to delete <?=$meal['Name']?>?</h3>
                     <input type="submit" calue="delete" class="btn btn-danger" />
                     <input type="hidden" name="id" value="<?=$_REQUEST['id']?>">
                 </div>

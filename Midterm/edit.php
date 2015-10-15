@@ -1,6 +1,6 @@
 <?php
 session_start();
-  $waffle = $_SESSION['food'];
+  $waffle = $_SESSION['waffle'];
   if($_POST){
     if(isset($_GET['id'])){
       $waffle[$_GET['id']] = $_POST;
@@ -8,14 +8,14 @@ session_start();
       $waffle = $_POST;
     }
     $waffle[] = $_POST;
-    $_SESSION['food'] = $waffle;
+    $_SESSION['waffle'] = $waffle;
     header('Location: ./');
   }
   
   if($_GET['id']){
-    $waffle = $food[$_GET['id']];
+    $meal = $waffle[$_GET['id']];
   } else {
-    $waffle = array();
+    $meal = array();
   }
 ?>
 <!DOCTYPE html>
@@ -36,7 +36,7 @@ session_start();
                 <h6>Edit mode</h6>
             </div>
             
-            <form class="form-horizontal" action="./" method="post">
+            <form class="form-horizontal" action="./" method="">
                 <div class="alert" style="display: none" id="myAlert">
                     <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h3></h3>

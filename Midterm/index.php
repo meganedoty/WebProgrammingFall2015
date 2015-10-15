@@ -44,7 +44,7 @@ session_start();
                   <i class="glyphicon glyphicon-thumbs-down"></i>
                   Delete All <span class="badge"><?=count($waffle)?></span>
                 </a>
-            </div><!-- col 8 -->
+            <!--</div><!-- col 8 -->
             
             <table class="table table-condensed table-striped table-hover">
               <thead>
@@ -74,9 +74,37 @@ session_start();
               </tbody>
             </table>
         </div> <!-- row -->
+        
+        <div class="col-md-4 col-xs-2">
+          <div class="panel panel-default">
+            <div class="panel-heading">Stay hydrated while eating waffles</div>
+            <div class="panel-body">
+              <div class="row">
+                <a href="#" class="btn btn-success" id="wateradd">+</a>
+                <a href="#" class="btn btn-danger" id="waterdelete">-</a>
+              </div>
+              Cups of water: <span>0</span>
+            </div>
+          </div>
+        </div>
       </div> <!-- container -->
       
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      (function() {
+        var i = 0;
+        $('#watteradd').on('click', function(e){
+          var self = this;
+          i = i++;
+          $("span").text("i");
+        });
+        $('#waterdelete').on('click', function(e){
+          var self="this";
+          i = i--;
+          $(".row span").text("i");
+        })
+      })
+    </script>
     </body>
   </html>
