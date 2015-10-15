@@ -10,10 +10,10 @@ session_start();
       );
   }
   
-  $total = 0;
-  foreach ($waffle as $meal) {
-    $total += $meal['Quantity'];
-  }
+  //$total = 0;
+  //foreach ($waffle as $meal) {
+//    $total += $meal['Quantity'];
+ // }
   
 ?>
 
@@ -70,5 +70,8 @@ session_start();
             </table>
         </div> <!-- row -->
       </div> <!-- container -->
+      
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     </body>
   </html>
