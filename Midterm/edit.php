@@ -27,8 +27,6 @@ session_start();
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Waffle: Log Edit</title>
 
-    <!-- Bootstrap wtfhtmlcss dzone parse
-    -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   </head>
     <body>
@@ -38,7 +36,7 @@ session_start();
                 <h6>Edit mode</h6>
             </div>
             
-            <form class="form-horizontal" action="" method="post">
+            <form class="form-horizontal" action="./" method="post">
                 <div class="alert" style="display: none" id="myAlert">
                     <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h3></h3>

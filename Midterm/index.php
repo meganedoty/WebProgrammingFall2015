@@ -13,7 +13,7 @@ session_start();
   $total = 0;
   foreach ($waffle as $meal) {
    $total += $meal['Quantity'];
-  }
+  };
   
 ?>
 
@@ -38,6 +38,11 @@ session_start();
                 <a href="edit.php" class="btn btn-success">
                     <i class="glyphicon glyphicon-thumbs-up"></i>
                     Add waffle consumption
+                </a>
+                
+                <a href="delete.php" class="btn btn-danger">
+                  <i class="glyphicon glyphicon-thumbs-down"></i>
+                  Delete All <span class="badge"><?=count($waffle)?></span>
                 </a>
             </div><!-- col 8 -->
             
