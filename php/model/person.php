@@ -26,5 +26,9 @@ class Person {
 		
 		return $error ? array ('sql error' => $error) : false;
 	}
+	static public function Blank()
+	{
+		return array();
+	}
 
 }
